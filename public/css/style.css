@@ -246,6 +246,22 @@ body {
   padding: 20px 0 14px;
 }
 
+.sugest4U{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #8e8e8e;
+}
+
+.verTudo{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #262626;
+}
+
 .sidebar .sugestoes .sugestao {
   display: flex;
   justify-content: space-between;
@@ -305,3 +321,14 @@ ion-icon {
   color: black;
 }
 
+.red{
+   color: red;
+}
+
+.black{
+  color: black;
+}
+
+.none{
+  background: none;
+}
