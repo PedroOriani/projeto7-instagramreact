@@ -74,7 +74,7 @@ function PostU(props){
         <li data-test="post" className="post">
             <div className="topo">
                 <div className="usuario">
-                    <img data-test="post-image" src={props.icon} alt="" />
+                    <img src={props.icon} alt="" />
                     {props.username}
                 </div>
                 <div className="acoes">
@@ -83,7 +83,7 @@ function PostU(props){
             </div>
 
             <div className="conteudo">
-                <img onClick={likeImage} src={props.image} alt="" />
+                <img data-test="post-image" onClick={likeImage} src={props.image} alt="" />
             </div>
 
             <div className="fundo">
