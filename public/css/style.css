@@ -332,3 +332,18 @@ ion-icon {
 .none{
   background: none;
 }
+
+.title1{
+  color: #8e8e8e;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.title2{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+}

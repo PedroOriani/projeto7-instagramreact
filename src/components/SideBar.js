@@ -7,10 +7,10 @@ export default function SideBar(){
     return(
         <div class="sidebar">
             <User />
-            <div className="sugestões">
+            <div className="sugestoes">
                 <div class="titulo">
-                    Sugestões para você
-                    <div>Ver tudo</div>
+                    <div class="title1">Sugestões para você</div>
+                    <div class="title2">Ver tudo</div>
                 </div>
                 <Suggestions />
             </div>

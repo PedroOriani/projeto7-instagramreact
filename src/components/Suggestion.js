@@ -22,7 +22,8 @@ export default function Suggestion(){
 }
     
 function SuggestionU(props){
-    <div className="sugestao">
+    return (
+        <div className="sugestao">
         <div className="usuario">
             <img src={props.icon} alt="" />
             <div className="texto">
@@ -33,4 +34,5 @@ function SuggestionU(props){
 
         <div className="seguir">Seguir</div>
     </div>
+    );  
 }
