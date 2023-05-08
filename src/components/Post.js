@@ -4,8 +4,8 @@ import { useState } from "react";
 export default function Post(){
     const posts = [
         {icon: "assets/img/meowed.svg",username: "meowed", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101523"},
-        {icon: "assets/img/barked.svg",username: "barked", image: "assets/img/dog.svg", likeIcon: "assets/img/adorable_animals.svg", likesUsername: "adorable_animals", likes: "101523"},
-        {icon: "assets/img/chibirdart.svg",username: "chibirdart", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101523"}
+        {icon: "assets/img/barked.svg",username: "barked", image: "assets/img/dog.svg", likeIcon: "assets/img/adorable_animals.svg", likesUsername: "adorable_animals", likes: "101525"},
+        {icon: "assets/img/chibirdart.svg",username: "chibirdart", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101528"}
     ]
 
     function returnPost(post){
