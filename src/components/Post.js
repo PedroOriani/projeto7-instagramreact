@@ -5,23 +5,26 @@ import { useState } from "react";
 
 export default function Post(){
     const posts = [
-        {icon: "assets/img/meowed.svg",username: "meowed", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101.523"},
-        {icon: "assets/img/barked.svg",username: "barked", image: "assets/img/dog.svg", likeIcon: "assets/img/adorable_animals.svg", likesUsername: "adorable_animals", likes: "99.159"},
-        {icon: "assets/img/chibirdart.svg",username: "chibirdart", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "100.298"}
+        {icon: "assets/img/meowed.svg",username: "meowed", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101523"},
+        {icon: "assets/img/barked.svg",username: "barked", image: "assets/img/dog.svg", likeIcon: "assets/img/adorable_animals.svg", likesUsername: "adorable_animals", likes: "101523"},
+        {icon: "assets/img/chibirdart.svg",username: "chibirdart", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101523"}
     ]
 
     let [classHeart, setClassHeart] = useState('none');
     let [classSave, setClassSave] = useState('none');
     let [heartName, setHeartName] = useState('heart-outline');
     let [saveName, setSaveName] = useState('bookmark-outline');
+    let [likeNumber, setLikeNumber] = useState('101523')
 
     function likeunlike(){
         if (classHeart === 'none'){
             setClassHeart('red')
             setHeartName('heart')
+            moreLike();
         }else{
             setClassHeart('none')
             setHeartName('heart-outline')
+            lessLike();
         }
     }
 
@@ -33,6 +36,26 @@ export default function Post(){
             setClassSave('none')
             setSaveName('bookmark-outline')
         }
+    }
+
+    function likeImage(){
+        if (classHeart === 'none'){
+            setClassHeart('red')
+            setHeartName('heart')
+            moreLike();
+        }
+    }
+
+    function moreLike(){
+        let numberLikeNumber = Number(likeNumber);
+        let more = numberLikeNumber + 1
+        setLikeNumber(more)
+    }
+
+    function lessLike(){
+        let numberLikeNumber = Number(likeNumber);
+        let less = numberLikeNumber - 1
+        setLikeNumber(less)
     }
 
     return(
@@ -51,7 +74,7 @@ export default function Post(){
             </div>
 
             <div className="conteudo">
-                <img src={post.image} alt="" />
+                <img onClick={likeImage} src={post.image} alt="" />
             </div>
 
             <div className="fundo">
@@ -69,7 +92,7 @@ export default function Post(){
                 <div className="curtidas">
                     <img src={post.likeIcon} alt="" />
                     <div className="texto">
-                        Curtido por <strong>{post.likesUsername}</strong> e <strong>outras <scan data-test="likes-number">{post.likes}</scan> pessoas</strong>
+                        Curtido por <strong>{post.likesUsername}</strong> e <strong>outras <scan data-test="likes-number">{likeNumber}</scan> pessoas</strong>
                     </div>
                 </div>
             </div>
