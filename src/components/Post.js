@@ -1,8 +1,6 @@
 import { ReactDOM } from "react";
 import { useState } from "react";
 
-
-
 export default function Post(){
     const posts = [
         {icon: "assets/img/meowed.svg",username: "meowed", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101523"},
@@ -10,11 +8,26 @@ export default function Post(){
         {icon: "assets/img/chibirdart.svg",username: "chibirdart", image: "assets/img/gato-telefone.svg", likeIcon: "assets/img/respondeai.svg", likesUsername: "respondeai", likes: "101523"}
     ]
 
+    function returnPost(post){
+        return <PostU icon={post.icon} username={post.username} image={post.image} likeIcon={post.likeIcon} likesUsername={post.likesUsername} likes={post.likes}/>
+    }
+
+    return(
+        <ul className="posts">
+            {posts.map(post => <PostU icon={post.icon} username={post.username} image={post.image} likeIcon={post.likeIcon} likesUsername={post.likesUsername} likes={post.likes}/>)}
+        </ul>
+    );            
+}
+
+function PostU(props){
+
+    let x = props.likes
+
     let [classHeart, setClassHeart] = useState('none');
     let [classSave, setClassSave] = useState('none');
     let [heartName, setHeartName] = useState('heart-outline');
     let [saveName, setSaveName] = useState('bookmark-outline');
-    let [likeNumber, setLikeNumber] = useState('101523')
+    let [likeNumber, setLikeNumber] = useState(x)
 
     function likeunlike(){
         if (classHeart === 'none'){
@@ -47,26 +60,22 @@ export default function Post(){
     }
 
     function moreLike(){
-        let numberLikeNumber = Number(likeNumber);
-        let more = numberLikeNumber + 1
+        x = Number(likeNumber);
+        let more = x + 1
         setLikeNumber(more)
     }
 
     function lessLike(){
-        let numberLikeNumber = Number(likeNumber);
-        let less = numberLikeNumber - 1
+        x = Number(likeNumber);
+        let less = x - 1
         setLikeNumber(less)
     }
-
     return(
-        <ul className="posts">
-            {posts.map(post => 
-            
-            <li data-test="post" className="post">
+        <li data-test="post" className="post">
             <div className="topo">
                 <div className="usuario">
-                    <img data-test="post-image" src={post.icon} alt="" />
-                    {post.username}
+                    <img data-test="post-image" src={props.icon} alt="" />
+                    {props.username}
                 </div>
                 <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -74,7 +83,7 @@ export default function Post(){
             </div>
 
             <div className="conteudo">
-                <img onClick={likeImage} src={post.image} alt="" />
+                <img onClick={likeImage} src={props.image} alt="" />
             </div>
 
             <div className="fundo">
@@ -90,13 +99,12 @@ export default function Post(){
                 </div>
 
                 <div className="curtidas">
-                    <img src={post.likeIcon} alt="" />
+                    <img src={props.likeIcon} alt="" />
                     <div className="texto">
-                        Curtido por <strong>{post.likesUsername}</strong> e <strong>outras <scan data-test="likes-number">{likeNumber}</scan> pessoas</strong>
+                        Curtido por <strong>{props.likesUsername}</strong> e <strong>outras <scan data-test="likes-number">{likeNumber}</scan> pessoas</strong>
                     </div>
                 </div>
             </div>
-        </li>)}
-        </ul>
-    );            
+        </li>
+    ); 
 }
